@@ -8,3 +8,7 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+//! Test rapide de la méthode du service (Hors React)
+//? Uniquement pour le dev -> A viré par la suite :o
+// fetchWeatherByCity('Bruxelles').then(result => console.log(result));
