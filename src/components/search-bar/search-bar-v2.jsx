@@ -12,7 +12,7 @@ export default function SearchBar({
         // PreventDefault est fait via l'attribut "action" du form
 
         // Fake Latence (ONLY FOR DEV !!!!!!!!!!!)
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 200));
 
         // Récuperation des données (sur base du "name" des inputs)
         const query = formData.get('query')?.trim();
