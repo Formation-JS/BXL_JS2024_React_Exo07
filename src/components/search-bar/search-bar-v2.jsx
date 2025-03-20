@@ -14,11 +14,12 @@ export default function SearchBar({
         // Fake Latence (ONLY FOR DEV !!!!!!!!!!!)
         await new Promise((resolve) => setTimeout(resolve, 500));
 
-        // Récuperation des données
+        // Récuperation des données (sur base du "name" des inputs)
         const query = formData.get('query')?.trim();
 
         // Validation
         if(!query) {
+            // La mise à jours du "state" avec un erreur
             return {
                 error: 'Veuillez encoder une valeur !'
             }
@@ -27,10 +28,21 @@ export default function SearchBar({
         // Communication avec le composant "parent"
         onSearch(query);
 
-        return state;
+        // La mise à jours du "state"
+        return {
+            error: null
+        };
     };
 
-    const [formState, formAction, isPending] = useActionState(handleSearchAction, null);
+    //! Création d'un state basé sur une action (méthode)
+    //  Parameters : - une méthode "action"
+    //               - un state initial
+    //  Return (collection) : - Le state
+    //                        - L'action encapsuler par le hook
+    //                        - Booléen pour indiqué si le traitement est en cours
+    const [formState, formAction, isPending] = useActionState(handleSearchAction, {
+        error: null
+    });
 
     return (
         <form action={formAction}>

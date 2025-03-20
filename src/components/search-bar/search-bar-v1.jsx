@@ -11,7 +11,7 @@ export default function SearchBar({
     const handleSearchAction = (formData) => {
         // PreventDefault est fait via l'attribut "action" du form
 
-        // Récuperation des données
+        // Récuperation des données (sur base du "name" des inputs)
         const query = formData.get('query');
         
         // Communication avec le composant "parent"
