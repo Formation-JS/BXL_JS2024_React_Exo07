@@ -45,6 +45,7 @@ export async function fetchWeatherByCity(searchCity) {
 
     const displayTempOption = { style:'unit', unit: 'celsius', unitDisplay: 'short' };
     return {
+        id: `${lon}/${lat}`,
         city,
         country,
         temp: weatherTemp.main.temp.toLocaleString('fr-be', displayTempOption),
